@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<it>
+	<lang>
+		<name>java</name>
+		<version>jdk8</version>
+		<vendor>oracle</vendor>
+	</lang>	
+	<lang>
+		<name>javascript</name>
+		<version>ECMAScript 2015</version>
+		<vendor>Escape</vendor>
+	</lang>
+	<lang>
+		<name>C#</name>
+		<version>10</version>
+		<vendor>Microsoft</vendor>
+	</lang>
+</it>

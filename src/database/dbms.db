@@ -1,0 +1,9 @@
+#오라클 정보
+oracle_url=jdbc:oracle:thin:@localhost:1521:XE
+oracle_userid=c##java
+oracle_password=1234
+
+#MySql 정보
+mysql_url=jdbc:mysql://localhost/android
+mysql_userid=root
+mysql_password=1234
