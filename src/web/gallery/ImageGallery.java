@@ -22,7 +22,6 @@ public class ImageGallery extends JFrame{
 	HttpURLConnection httpCon; //원격지의 리소스에 연결!!
 	BufferedReader buffr;
 	
-	
 	public ImageGallery() {
 		setLayout(new FlowLayout());
 		loadFromURl();

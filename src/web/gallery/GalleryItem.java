@@ -4,7 +4,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -26,14 +31,14 @@ public class GalleryItem extends JPanel{
 		p_canvas = new JPanel() {
 			@Override
 			public void paint(Graphics g) {
-				g.drawImage(img,0,0,width,height*(70/100),p_canvas);
+				g.drawImage(img,0,0,width,height,p_canvas);
 			}
 		};
 		la_title = new JLabel("제목 :"+title);
 		la_author = new JLabel("작성자 : "+author);
 		
 		//스타일
-		p_canvas.setPreferredSize(new Dimension(width,height*(70/100)));
+		p_canvas.setPreferredSize(new Dimension(width,70));
 		p_canvas.setBackground(Color.RED);
 		la_title.setPreferredSize(new Dimension(width,40));
 		la_author.setPreferredSize(new Dimension(width,40));
@@ -42,9 +47,22 @@ public class GalleryItem extends JPanel{
 		add(p_canvas);
 		add(la_title);
 		add(la_author);
+		
+		//이미지처리
+		createImage();
 	}
 	//url로 부터 이미지 생성해야 하므로, ImageIO.read() 할 예정..
 	public void createImage() {
-		
+		try {
+			URL url = new URL("http://127.0.0.1:9090/images/"+filename);
+			BufferedImage buffImg = ImageIO.read(url);
+			img = buffImg;
+			p_canvas.repaint(); //refresh
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
+                 
